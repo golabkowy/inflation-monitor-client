@@ -1,1 +1,35 @@
-<p>product works!</p>
+<!--# is a syntax for template variable, you can use value from element marked by # in other html template fields-->
+<!--in case below we create productForm variable (it contains whole formular) and pass to ngForm-->
+<form (ngSubmit)="onFormSubmitFunctionNamedByMe()" #productForm="ngForm">
+  <!--    for has to be same as id of input -->
+  <label for="product-name">Product name:</label><br>
+  <input type="text" id="product-name" name="name" [(ngModel)]="productFormModel.name"><br>
+
+  <label for="product-price">Price:</label><br>
+  <input type="text" id="product-price" name="price" [(ngModel)]="productFormModel.price"><br>
+
+  <!--  "for" its an html property, it tells for which of inputs, the label is bind to-->
+  <label for="product-shop">Shop name:</label><br>
+  <input type="text" id="product-shop" name="shop" [(ngModel)]="productFormModel.shop"><br>
+
+  <label for="product-date">Date:</label><br>
+  <input type="text" id="product-date" name="date" [(ngModel)]="productFormModel.date"><br>
+
+  <input type="submit" value="Add Product"><br>
+</form>
+
+<div>
+  <!--    chart area-->
+  <button type="button" (click)="buttonClick()"> TEST HTTP BUTTON</button>
+
+  <div *ngFor="let product of products"> PRODUCT: {{product.name}}</div>
+
+</div>
+
+<!--TEMPLATE FORM EXAMPLE...-->
+<div class="form-group">
+  <label for="power">Hero Power</label>
+  <select class="form-control" id="power" required>
+    <!--    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>-->
+  </select>
+</div>
