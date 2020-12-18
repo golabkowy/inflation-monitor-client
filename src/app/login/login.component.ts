@@ -20,4 +20,16 @@ export class LoginComponent implements OnInit {
   loginFunction(): void {
     this.authService.login(this.login, this.password);
   }
+
+  googleLogin(): void {
+    this.authService.oauth2Login();
+  }
+
+  testGET(): void {
+    this.testService.testGET();
+  }
+
+  testPOST(): void {
+    this.testService.testPOST();
+  }
 }

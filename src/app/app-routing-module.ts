@@ -12,7 +12,7 @@ import {AuthGuard} from '../auth/auth.guard';
 // canLoad is used to prevent the application from loading entire modules lazily if the user is not authorized to do so.
 
 const routes: Routes = [
-  {path: 'page1', component: LoginComponent, canActivate: [AuthGuard]},
+  {path: 'page1', component: LoginComponent},
   {path: 'page2', component: MenuComponent, canActivate: [AuthGuard]},
   {path: 'page3', component: ProductComponent, canActivate: [AuthGuard]},
   {path: '**', component: PageNotFoundComponent},  // Wildcard route for a 404 page
