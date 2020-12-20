@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {ChartsModule} from 'ng2-charts';
 
 import {AppRoutingModule} from './app-routing-module';
 import {AppComponent} from './app.component';
@@ -24,7 +25,8 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

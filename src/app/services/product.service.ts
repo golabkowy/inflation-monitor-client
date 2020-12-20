@@ -12,11 +12,8 @@ export class ProductService {
   }
 
   getProductsList(): Observable<Array<Product>> {
-    // domyslny typ w responseType to chyba json, plain texta nie lyka jestli się nie wyspecyfikuje tego typu
-    const response = this.httpClient.get('http://localhost:8080/response-entity-test', {responseType: 'json'});
-    console.log('response bez mapowania');
-    console.log(response);
-    return this.httpClient.get<Array<Product>>('http://localhost:8080/response-entity-test', {responseType: 'json'});
+    const result = this.httpClient.get<Array<Product>>('http://localhost:8080/products', {responseType: 'json'});
+    return result;
   }
 }
 

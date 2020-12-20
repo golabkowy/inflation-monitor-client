@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {TestService} from '../services/test.service';
+import {Router} from '@angular/router';
+import {MenuComponent} from '../menu/menu.component';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +13,17 @@ export class LoginComponent implements OnInit {
   login: string;
   password: string;
 
-  constructor(private authService: AuthService, private testService: TestService) {
+  constructor(private authService: AuthService, private testService: TestService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
   loginFunction(): void {
-    this.authService.login(this.login, this.password);
+    this.authService.login(this.login, this.password).subscribe(result => {
+      this.router.navigate(['page2']);
+    }, error => {
+    });
   }
 
   googleLogin(): void {

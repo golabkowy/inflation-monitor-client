@@ -5,6 +5,7 @@ import {MenuComponent} from './menu/menu.component';
 import {ProductComponent} from './product/product.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuard} from '../auth/auth.guard';
+import {ChartAreaComponent} from './chart-area/chart-area.component';
 
 // here it is the place to aa dom "canActivateMethods"
 // jakie sa roznice miedzy can activate a can load albo canActivateChil
@@ -15,6 +16,8 @@ const routes: Routes = [
   {path: 'page1', component: LoginComponent},
   {path: 'page2', component: MenuComponent, canActivate: [AuthGuard]},
   {path: 'page3', component: ProductComponent, canActivate: [AuthGuard]},
+  // {path: 'page4', component: ChartAreaComponent, canActivate: [AuthGuard]},
+  {path: 'chart', component: ChartAreaComponent},
   {path: '**', component: PageNotFoundComponent},  // Wildcard route for a 404 page
 ];
 
