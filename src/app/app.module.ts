@@ -11,6 +11,11 @@ import {MenuComponent} from './menu/menu.component';
 import {ChartAreaComponent} from './chart-area/chart-area.component';
 import {ProductComponent} from './product/product.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TableComponent} from './table/table.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -20,13 +25,18 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
     ChartAreaComponent,
     ProductComponent,
     PageNotFoundComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

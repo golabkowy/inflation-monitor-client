@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {MenuComponent} from './menu/menu.component';
 import {ProductComponent} from './product/product.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuard} from '../auth/auth.guard';
 import {ChartAreaComponent} from './chart-area/chart-area.component';
+import {TableComponent} from './table/table.component';
 
 // here it is the place to aa dom "canActivateMethods"
 // jakie sa roznice miedzy can activate a can load albo canActivateChil
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'page3', component: ProductComponent, canActivate: [AuthGuard]},
   // {path: 'page4', component: ChartAreaComponent, canActivate: [AuthGuard]},
   {path: 'chart', component: ChartAreaComponent},
+  {path: 'table', component: TableComponent},
   {path: '**', component: PageNotFoundComponent},  // Wildcard route for a 404 page
 ];
 
