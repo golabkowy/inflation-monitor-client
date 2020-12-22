@@ -16,6 +16,7 @@ import {TableComponent} from './table/table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {LiquorReviewsComponent} from './liquor-reviews/liquor-reviews.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ProductComponent,
     PageNotFoundComponent,
     TableComponent,
+    LiquorReviewsComponent,
   ],
   imports: [
     BrowserModule,

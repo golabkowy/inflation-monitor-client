@@ -1,0 +1,22 @@
+<p>liquor-reviews works!</p>
+<div class="grid-x">
+  <div class="cell small-2">Autor</div>
+  <div class="cell small-2">Typ Trunku</div>
+  <div class="cell small-2">Nazwa Trunku</div>
+  <div class="cell small-2">Recenzja</div>
+  <div class="cell small-2">Ocena</div>
+</div>
+<ng-container *ngFor="let rev of data">
+  <div class="grid-x">
+    <div class="cell small-2">{{rev.author}}</div>
+    <div class="cell small-2">{{rev.type}}</div>
+    <div class="cell small-2">{{rev.name}}</div>
+    <div class="cell small-2">{{rev.review}}</div>
+    <div class="cell small-2">{{rev.rating}}</div>
+  </div>
+</ng-container>
+
+
+<!-- Buttons (actions) -->
+<button type="button" class="success button">Dodaj recenzję</button>
+<button type="button" class="alert button">Usuń recenzję</button>

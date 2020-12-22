@@ -7,6 +7,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuard} from '../auth/auth.guard';
 import {ChartAreaComponent} from './chart-area/chart-area.component';
 import {TableComponent} from './table/table.component';
+import {LiquorReviewsComponent} from './liquor-reviews/liquor-reviews.component';
 
 // here it is the place to aa dom "canActivateMethods"
 // jakie sa roznice miedzy can activate a can load albo canActivateChil
@@ -20,6 +21,7 @@ const routes: Routes = [
   // {path: 'page4', component: ChartAreaComponent, canActivate: [AuthGuard]},
   {path: 'chart', component: ChartAreaComponent},
   {path: 'table', component: TableComponent},
+  {path: 'liquor-reviews', component: LiquorReviewsComponent},
   {path: '**', component: PageNotFoundComponent},  // Wildcard route for a 404 page
 ];
 
