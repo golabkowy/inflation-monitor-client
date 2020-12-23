@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LiquorData} from '../interfaces/liquor-data';
+import {LiquorReviewsService} from '../services/liquor-reviews.service';
 
 @Component({
   selector: 'app-liquor-reviews',
@@ -8,17 +9,17 @@ import {LiquorData} from '../interfaces/liquor-data';
 })
 export class LiquorReviewsComponent implements OnInit {
 
-  data: LiquorData[] = [
-    {author: 'szynom', type: 'wino', name: 'angelo-mocne', review: 'klasyka sama w sobie, co tu komentowac', rating: 10},
-    {author: 'piotrekh', type: 'piwo', name: 'harnas', review: 'gowno ale dla studenta dobre', rating: 10},
-    {author: 'nemo', type: 'wodka', name: 'ulgowa zubr', review: 'najlpiej spozyc z dużą ilością lodu', rating: 10},
-    {author: 'gamil', type: 'whisky', name: 'monkey shopulder', review: 'droga, dobra, smaczna', rating: 10},
-    {author: 'golomp', type: 'miod pitny', name: 'trojniaczek', review: 'bardzo dobry miut', rating: 10}];
+  data: LiquorData[] = [];
 
-  constructor() {
+  constructor(private liquorService: LiquorReviewsService) {
   }
 
   ngOnInit(): void {
+    this.liquorService.getReviews().subscribe((result: LiquorData[]) => {
+      this.data = result;
+    }, error => {
+      console.log(error);
+    });
   }
 
 }
