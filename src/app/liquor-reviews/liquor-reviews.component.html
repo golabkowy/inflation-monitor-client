@@ -16,7 +16,26 @@
   </div>
 </ng-container>
 
+<form (ngSubmit)="addLiquorReview()" #productForm="ngForm">
+  <!--    for has to be same as id of input -->
+  <label for="liquor-type">Typ:</label><br>
+  <input type="text" id="liquor-type" name="liquor-type" [(ngModel)]="liquorDataModel.type"><br>
+
+  <label for="product-price">Nazwa:</label><br>
+  <input type="text" id="product-price" name="price" [(ngModel)]="liquorDataModel.name"><br>
+
+  <!--  "for" its an html property, it tells for which of inputs, the label is bind to-->
+  <label for="liquor-review">Recenzja:</label><br>
+  <input type="text" id="liquor-review" name="liquor-review" [(ngModel)]="liquorDataModel.review"><br>
+
+  <label for="liquor-rate">Ocena:</label><br>
+  <input type="text" id="liquor-rate" name="liquor-rate" [(ngModel)]="liquorDataModel.rating"><br>
+
+  <input type="submit" value="Dodaj recenzję cumplu"><br>
+</form>
 
 <!-- Buttons (actions) -->
 <button type="button" class="success button">Dodaj recenzję</button>
 <button type="button" class="alert button">Usuń recenzję</button>
+
+
