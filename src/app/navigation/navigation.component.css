@@ -1,0 +1,25 @@
+#navigation-tab-inflation {
+  background-color: antiquewhite;
+}
+
+#navigation-tab-links {
+  background-color: aquamarine;
+}
+
+#navigation-tab-liquor-reviews {
+  background-color: cadetblue;
+}
+
+#navigation-tab-notes {
+  background-color: darkkhaki;
+}
+
+#navigation-tab-inflation, #navigation-tab-links, #navigation-tab-liquor-reviews, #navigation-tab-notes{
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+  max-height: 100vh;
+  font-size: 300%;
+  font-family:"Comic Sans MS" ;
+  /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+}

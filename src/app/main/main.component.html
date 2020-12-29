@@ -1,0 +1,60 @@
+<div id="main-container" class="grid-x">
+
+  <div id="main-left-menu-section-wrapper" class="cell medium-3">
+    <button mat-raised-button color="primary" class="cell medium-3" routerLink="/products" routerLinkActive="active">
+      Panel produktów
+    </button>
+    <br>
+    <br>
+    <p class="cell medium-3"> Obserwowane produkty</p>
+    <br>
+    <mat-selection-list #products>
+      <mat-list-option *ngFor="let product of observedProducts">
+        {{product}}
+      </mat-list-option>
+    </mat-selection-list>
+    <button mat-raised-button color="primary">Dodaj do obserwowanych</button>
+    <button mat-raised-button color="warn">Usuń z obserwowayche</button>
+
+    <p>
+      Options selected: {{products.selectedOptions.selected.length}}
+    </p>
+  </div>
+
+  <div id="main-chart-section-wrapper" class="cell medium-9">
+
+    <div id="main-chart-menu-wrapper" class="grid-x">
+      <mat-form-field appearance="fill" class="cell medium-3">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Rodzaj wykresu</mat-label>
+        <mat-select [formControl]="panelColor"
+                    panelClass="example-panel-{{panelColor.value}}">
+          <mat-option value="red">Cena / czas</mat-option>
+          <mat-option value="green">Ilość produktów za kwotę</mat-option>
+          <mat-option value="blue">Para walutowa / koszt produktu</mat-option>
+          <mat-option value="blue">Para walutowa / ilość jednostek produktu</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <p>SELECT PARY WALUTOWE</p>
+    </div>
+
+    <div id="main-chart-wrapper">
+      <app-chart-area></app-chart-area>
+    </div>
+  </div>
+  <footer class="row cell medium-12">
+    Footer
+  </footer>
+
+</div>
+

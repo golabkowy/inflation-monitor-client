@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ChartsModule} from 'ng2-charts';
 
 import {AppRoutingModule} from './app-routing-module';
@@ -17,6 +17,15 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {LiquorReviewsComponent} from './liquor-reviews/liquor-reviews.component';
+import {MainComponent} from './main/main.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
+import {NavigationComponent} from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +37,8 @@ import {LiquorReviewsComponent} from './liquor-reviews/liquor-reviews.component'
     PageNotFoundComponent,
     TableComponent,
     LiquorReviewsComponent,
+    MainComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,15 @@ import {LiquorReviewsComponent} from './liquor-reviews/liquor-reviews.component'
     BrowserAnimationsModule,
     MatTableModule,
     MatFormFieldModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatListModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
