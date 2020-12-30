@@ -9,6 +9,8 @@ import {TableComponent} from './table/table.component';
 import {LiquorReviewsComponent} from './liquor-reviews/liquor-reviews.component';
 import {MainComponent} from './main/main.component';
 import {NavigationComponent} from './navigation/navigation.component';
+import {LinksComponent} from './links/links.component';
+import {NotesComponent} from './notes/notes.component';
 
 // here it is the place to aa dom "canActivateMethods"
 // jakie sa roznice miedzy can activate a can load albo canActivateChil
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path: 'liquor-reviews', component: LiquorReviewsComponent},
   {path: 'main', component: MainComponent},
   {path: 'navigate', component: NavigationComponent},
+  {path: 'links', component: LinksComponent},
+  {path: 'notes', component: NotesComponent},
   {path: '**', component: PageNotFoundComponent},  // Wildcard route for a 404 page
 ];
 

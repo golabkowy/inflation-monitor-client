@@ -1,0 +1,16 @@
+<div id="notes-container">
+
+  <div id="notes-header-wrapper">
+    <div id="notes-header-nav" class="grid-x">
+      <button mat-raised-button color="primary" class="cell medium-3" routerLink="/navigate" routerLinkActive="active">
+        Powrót do menu
+      </button>
+      <h1 class="cell medium-9" style="text-align: center">NOTATKI: </h1>
+    </div>
+  </div>
+
+  <div *ngFor="let test of [1,2,3,4,5]">
+    <br>
+    <app-note></app-note>
+  </div>
+</div>
