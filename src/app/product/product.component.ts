@@ -6,6 +6,9 @@ import {ProductModel} from '../interfaces/ProductModel';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {MatDialog} from '@angular/material/dialog';
+import {ProductModalComponent} from '../product-modal/product-modal.component';
+
 
 export interface UserData {
   id: string;
@@ -31,7 +34,7 @@ function createNewUser(id: number): UserData {
 
   return {
     id: id.toString(),
-    name: name,
+    name,
     progress: Math.round(Math.random() * 100).toString(),
     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
   };
@@ -71,7 +74,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
     this.submited = true;
   }
 
-  constructor(productService: ProductService) {
+  constructor(productService: ProductService, public dialog: MatDialog) {
     this.productService = productService;
     // table stuff
     // Create 100 users
@@ -90,6 +93,10 @@ export class ProductComponent implements OnInit, AfterViewInit {
     }, error => {
       console.log('some unexpected error occured when Product component request for products');
     });
+  }
+
+  openDialog(): any {
+    this.dialog.open(ProductModalComponent);
   }
 
   ngAfterViewInit(): void {

@@ -26,6 +26,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {NavigationComponent} from './navigation/navigation.component';
+import {LinksComponent} from './links/links.component';
+import {NotesComponent} from './notes/notes.component';
+import {NoteComponent} from './note/note.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {ProductModalComponent} from './product-modal/product-modal.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,11 @@ import {NavigationComponent} from './navigation/navigation.component';
     TableComponent,
     LiquorReviewsComponent,
     MainComponent,
-    NavigationComponent
+    NavigationComponent,
+    LinksComponent,
+    NotesComponent,
+    NoteComponent,
+    ProductModalComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +67,9 @@ import {NavigationComponent} from './navigation/navigation.component';
     MatSelectModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

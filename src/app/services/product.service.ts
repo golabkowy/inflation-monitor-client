@@ -15,6 +15,10 @@ export class ProductService {
     const result = this.httpClient.get<Array<Product>>('http://localhost:8080/products', {responseType: 'json'});
     return result;
   }
+
+  addNewProductType(product: Product): Observable<any> {
+    return this.httpClient.post('http://localhost:8080/products', product);
+  }
 }
 
 
