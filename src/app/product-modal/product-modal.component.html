@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Dodaj nowy produkt</h1>
+<div mat-dialog-content>Tutaj będzie formularz dodawania produktu</div>
+
+<form (ngSubmit)="addNewProductType()" #productForm="ngForm">
+  <!--    for has to be same as id of input -->
+  <label for="product-category">Kategoria produktu:</label><br>
+  <input type="text" id="product-category" name="product-category" [(ngModel)]="productDataModel.category"><br>
+
+  <label for="product-price">Nazwa produktu:</label><br>
+  <input type="text" id="product-name" name="price" [(ngModel)]="productDataModel.name"><br>
+
+  <label for="product-price">Cena produktu:</label><br>
+  <input type="text" id="product-price" name="price" [(ngModel)]="productDataModel.price"><br>
+
+  <mat-form-field appearance="fill" class="cell medium-3">
+    <mat-label>Data dodania produktu:</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="Data">
+<!--      <input matEndDate placeholder="End date">-->
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+
+
+  <div mat-dialog-actions>
+    <button type="submit" mat-raised-button color="primary">Dodaj Produkt</button>
+    <button mat-raised-button (click)="closeDialog()">Zamknij</button>
+  </div>
+</form>
+
+

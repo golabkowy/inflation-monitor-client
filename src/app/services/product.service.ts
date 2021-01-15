@@ -16,8 +16,12 @@ export class ProductService {
     return result;
   }
 
-  addNewProductType(product: Product): Observable<any> {
-    return this.httpClient.post('http://localhost:8080/products', product);
+  addNewProductType(product: Product): any {
+    this.httpClient.post('http://localhost:8080/products/add-new-product-type', product).subscribe(res => {
+      console.log(res);
+    }, error => {
+      console.log('error');
+    });
   }
 }
 
