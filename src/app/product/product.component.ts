@@ -6,8 +6,9 @@ import {ProductModel} from '../interfaces/ProductModel';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ProductModalComponent} from '../product-modal/product-modal.component';
+import {ShopModalComponent} from '../shop-modal/shop-modal.component';
 
 
 export interface UserData {
@@ -66,6 +67,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  openedDialogRef: MatDialogRef<any> = null;
 
   // end of table stuff
 
@@ -91,12 +93,20 @@ export class ProductComponent implements OnInit, AfterViewInit {
     lol.subscribe(data => {
       this.products = data;
     }, error => {
-      console.log('some unexpected error occured when Product component request for products');
+      console.log('some unexpected error ocurred when Product component request for products');
     });
   }
 
-  openDialog(): any {
-    this.dialog.open(ProductModalComponent);
+  openProductDialog(): any {
+    // tslint:disable-next-line:no-unused-expression
+    this.openedDialogRef != null && this.openedDialogRef.close();
+    this.openedDialogRef = this.dialog.open(ProductModalComponent);
+  }
+
+  openShopDialog(): any {
+    // tslint:disable-next-line:no-unused-expression
+    this.openedDialogRef != null && this.openedDialogRef.close();
+    this.dialog.open(ShopModalComponent);
   }
 
   ngAfterViewInit(): void {

@@ -32,6 +32,7 @@ import {NoteComponent} from './note/note.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {ProductModalComponent} from './product-modal/product-modal.component';
+import {ShopModalComponent} from './shop-modal/shop-modal.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {ProductModalComponent} from './product-modal/product-modal.component';
     LinksComponent,
     NotesComponent,
     NoteComponent,
-    ProductModalComponent
+    ProductModalComponent,
+    ShopModalComponent,
   ],
   imports: [
     BrowserModule,

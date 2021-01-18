@@ -1,31 +1,3 @@
-<!--# is a syntax for template variable, you can use value from element marked by # in other html template fields-->
-<!--in case below we create productForm variable (it contains whole formular) and pass to ngForm-->
-
-<!--to powinno iść do modala-->
-<!--<form (ngSubmit)="onFormSubmitFunctionNamedByMe()" #productForm="ngForm">-->
-<!--  &lt;!&ndash;    for has to be same as id of input &ndash;&gt;-->
-<!--  <label for="product-name">Product name:</label><br>-->
-<!--  <input type="text" id="product-name" name="name" [(ngModel)]="productFormModel.name"><br>-->
-
-<!--  <label for="product-price">Price:</label><br>-->
-<!--  <input type="text" id="product-price" name="price" [(ngModel)]="productFormModel.price"><br>-->
-
-<!--  &lt;!&ndash;  "for" its an html property, it tells for which of inputs, the label is bind to&ndash;&gt;-->
-<!--  <label for="product-shop">Shop name:</label><br>-->
-<!--  <input type="text" id="product-shop" name="shop" [(ngModel)]="productFormModel.shop"><br>-->
-
-<!--  <label for="product-date">Date:</label><br>-->
-<!--  <input type="text" id="product-date" name="date" [(ngModel)]="productFormModel.date"><br>-->
-
-<!--  <input type="submit" value="Add Product"><br>-->
-<!--</form>-->
-
-<!--<div>-->
-<!--  <button type="button" (click)="buttonClick()"> TEST HTTP BUTTON</button>-->
-<!--&lt;!&ndash;  <div *ngFor="let product of products"> PRODUCT: {{product.name}}</div>&ndash;&gt;-->
-<!--</div>-->
-
-
 <div id="product-container" class="grid-x">
 
   <div id="product-left-menu-section-wrapper" class="cell medium-3">
@@ -57,7 +29,9 @@
       <mat-list-item> LOREM</mat-list-item>
     </mat-list>
 
-    <button mat-raised-button color="primary" class="cell medium-3" (click)="openDialog()">Dodaj nowy produkt</button>
+    <button mat-raised-button color="primary" class="cell medium-3" (click)="openProductDialog()">Dodaj nowy produkt
+    </button>
+    <button mat-raised-button color="primary" class="cell medium-3" (click)="openShopDialog()">Dodaj nowy sklep</button>
 
   </div>
 
@@ -66,10 +40,6 @@
       <div> INFORMACJE O PRODUKCIE:</div>
       <div>NAZWA: SKLEP: KATEGORIA: INNE DANE:</div>
     </div>
-
-    <!--    table--><p>table works!</p>
-    <!-- ich stronie / fejsie
-    -->
 
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
