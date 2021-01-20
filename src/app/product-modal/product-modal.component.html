@@ -17,6 +17,7 @@
 
   <mat-select>
     <mat-option *ngFor="let shop of shops" [value]="shop">{{shop}}</mat-option>
+    <mat-option (click)="openShopDialog()">Dodaj nowy sklep</mat-option>
   </mat-select>
   <br><br>
 

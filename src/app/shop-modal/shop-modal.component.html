@@ -1,3 +1,15 @@
 <h1 mat-dialog-title>Dodaj nowy sklep</h1>
-<div mat-dialog-content>Option1</div>
-<div mat-dialog-content>Option2</div>
+
+<mat-label>Wybierz kategorie z listy</mat-label>
+<mat-select>
+  <mat-option *ngFor="let shopType of shopTypesList" [value]="shopType">{{shopType.name}}</mat-option>
+</mat-select>
+<br><br>
+
+<mat-label>Dodaj nową kategorię</mat-label>
+
+<input matInput type="text" [(ngModel)]="newShopTypeValue">
+
+<button mat-button *ngIf="newShopTypeValue" matSuffix mat-icon-button aria-label="Clear" (click)="newShopTypeValue=''">
+  <mat-icon>close</mat-icon>
+</button>

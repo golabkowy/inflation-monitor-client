@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ShopService} from '../services/shop.service';
+import {ShopType} from '../interfaces/ShopType';
 
 @Component({
   selector: 'app-shop-modal',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopModalComponent implements OnInit {
 
-  constructor() { }
+  shopTypesList: ShopType[] = [];
+  newShopTypeValue = 'nowa kategoria sklepu';
+
+  constructor(private shopService: ShopService) {
+  }
 
   ngOnInit(): void {
+    this.shopService.listShopTypes().subscribe(result => {
+      result.forEach(el => {
+        this.shopTypesList.push(el);
+      });
+    });
   }
 
 }
