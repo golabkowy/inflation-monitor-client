@@ -5,6 +5,7 @@ import {ProductService} from '../services/product.service';
 import {MatDatepicker} from '@angular/material/datepicker';
 import {ShopService} from '../services/shop.service';
 import {ShopModalComponent} from '../shop-modal/shop-modal.component';
+import {ProductType} from '../interfaces/ProductType';
 
 @Component({
   selector: 'app-product-modal',
@@ -20,12 +21,19 @@ export class ProductModalComponent implements OnInit {
   };
 
   shops: string[] = [];
+  productTypes: ProductType[] = [];
 
   constructor(public dialogRef: MatDialogRef<ProductModalComponent>, private productService: ProductService,
               private shopService: ShopService, private dialogShop: MatDialog) {
     this.shopService.listShops().subscribe(resp => {
       resp.forEach(el => {
         this.shops.push(el.name);
+      });
+    });
+
+    this.productService.getProductsTypesList().subscribe(resp => {
+      resp.forEach(type => {
+        this.productTypes.push(type);
       });
     });
   }

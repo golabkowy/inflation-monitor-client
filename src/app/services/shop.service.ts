@@ -19,4 +19,8 @@ export class ShopService {
   listShopTypes(): Observable<ShopType[]> {
     return this.httpClient.get<ShopType[]>('http://localhost:8080/shop/list-shop-types', {withCredentials: true});
   }
+
+  addShopType(shopType: ShopType): any {
+    this.httpClient.post('http://localhost:8080/shop/add-shop-type', shopType, {withCredentials: true});
+  }
 }
