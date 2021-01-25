@@ -3,9 +3,11 @@
 <form (ngSubmit)="addNewProductType()" #productForm="ngForm">
   <mat-label> Kategoria produktu:</mat-label>
   <br>
-  <mat-select>
-    <mat-option *ngFor="let productType of productTypes" [value]="productType">{{productType.type}}</mat-option>
-  </mat-select>
+  <mat-form-field>
+    <mat-select [(ngModel)]="productDataModel.productType" name="product-type">
+      <mat-option *ngFor="let productType of productTypes" [value]="productType">{{productType.type}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <label for="product-price">Nazwa produktu:</label><br>
   <input type="text" id="product-name" name="price" [(ngModel)]="productDataModel.name"><br>
@@ -13,25 +15,9 @@
   <label for="product-price">Cena produktu:</label><br>
   <input type="text" id="product-price" name="price" [(ngModel)]="productDataModel.price"><br>
 
-  <mat-label>Nazwa sklepu</mat-label>
-  <br>
 
-  <mat-select>
-    <mat-option *ngFor="let shop of shops" [value]="shop">{{shop}}</mat-option>
-    <mat-option (click)="openShopDialog()">Dodaj nowy sklep</mat-option>
-  </mat-select>
+
   <br><br>
-
-  <mat-form-field appearance="fill" class="cell medium-3">
-    <mat-label>Data dodania produktu:</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Data">
-      <!--      <input matEndDate placeholder="End date">-->
-    </mat-date-range-input>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>
-  </mat-form-field>
-
 
   <div mat-dialog-actions>
     <button type="submit" mat-raised-button color="primary">Dodaj Produkt</button>

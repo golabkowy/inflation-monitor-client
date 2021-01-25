@@ -1,0 +1,49 @@
+<div class="">
+  <div class="row">
+    <div class="col-sm">
+      <form (ngSubmit)="test()" #productForm="ngForm">
+        <!--left-->
+        <mat-label>Data zrobienia zakupków:</mat-label>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <br>
+        <mat-label>Nazwa sklepu</mat-label>
+
+        <mat-form-field>
+          <!--      <mat-select [(ngModel)]="productDataModel.shop" name="shop">-->
+          <mat-select name="shop">
+            <mat-option *ngFor="let shop of shops" [value]="shop">{{shop}}</mat-option>
+            <mat-option (click)="openShopDialog()">Dodaj nowy sklep</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <label for="product-price">Produkt:</label><br>
+
+        <label for="product-price">Cena produktu:</label><br>
+        <!--  <input type="text" id="product-price" name="price" [(ngModel)]="productDataModel.price"><br>-->
+        <input type="text" id="product-price" name="price"><br>
+
+        <label for="product-price">Ostatnio kupowane / obserwowane:</label><br>
+      </form>
+    </div>
+
+    <!--  right-->
+    <div class="col-sm">
+      Twoje zakupy:
+      <ul>
+        <li *ngFor="let product of products">
+          {{product}}
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

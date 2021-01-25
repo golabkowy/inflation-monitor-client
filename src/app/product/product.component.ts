@@ -1,14 +1,14 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ProductService} from '../services/product.service';
 import {Observable} from 'rxjs';
-import {Product} from '../interfaces/product';
-import {ProductModel} from '../interfaces/ProductModel';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ProductModalComponent} from '../product-modal/product-modal.component';
 import {ShopModalComponent} from '../shop-modal/shop-modal.component';
+import {Product} from '../interfaces/Product';
+import {PurchaseModalComponent} from '../purchase-modal/purchase-modal.component';
 
 
 export interface UserData {
@@ -52,7 +52,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
   productService: ProductService;
   products: Array<Product>;
   // form variables
-  productFormModel = new ProductModel(1, 'defalt-name', '123', 'biedra', '25-10-2020');
+  productFormModel = {};
   submited = false;
 
   // checkbox props
@@ -107,6 +107,12 @@ export class ProductComponent implements OnInit, AfterViewInit {
     // tslint:disable-next-line:no-unused-expression
     this.openedDialogRef != null && this.openedDialogRef.close();
     this.dialog.open(ShopModalComponent);
+  }
+
+  openPurchaseDialog(): any {
+    // tslint:disable-next-line:no-unused-expression
+    this.openedDialogRef != null && this.openedDialogRef.close();
+    this.dialog.open(PurchaseModalComponent);
   }
 
   ngAfterViewInit(): void {

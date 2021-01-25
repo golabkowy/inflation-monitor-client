@@ -33,6 +33,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {ProductModalComponent} from './product-modal/product-modal.component';
 import {ShopModalComponent} from './shop-modal/shop-modal.component';
+import {PurchaseModalComponent} from './purchase-modal/purchase-modal.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import {ShopModalComponent} from './shop-modal/shop-modal.component';
     NoteComponent,
     ProductModalComponent,
     ShopModalComponent,
+    PurchaseModalComponent,
   ],
   imports: [
     BrowserModule,

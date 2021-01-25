@@ -1,10 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {Product} from '../interfaces/product';
+import {MatDialogRef} from '@angular/material/dialog';
+import {Product} from '../interfaces/Product';
 import {ProductService} from '../services/product.service';
 import {MatDatepicker} from '@angular/material/datepicker';
-import {ShopService} from '../services/shop.service';
-import {ShopModalComponent} from '../shop-modal/shop-modal.component';
 import {ProductType} from '../interfaces/ProductType';
 
 @Component({
@@ -17,20 +15,15 @@ export class ProductModalComponent implements OnInit {
   @ViewChild(MatDatepicker) datepicker: MatDatepicker<Date>;
   productDataModel: Product = {
     name: '',
-    category: ''
+    productType: '',
+    price: 0,
+    shop: ''
   };
 
   shops: string[] = [];
   productTypes: ProductType[] = [];
 
-  constructor(public dialogRef: MatDialogRef<ProductModalComponent>, private productService: ProductService,
-              private shopService: ShopService, private dialogShop: MatDialog) {
-    this.shopService.listShops().subscribe(resp => {
-      resp.forEach(el => {
-        this.shops.push(el.name);
-      });
-    });
-
+  constructor(public dialogRef: MatDialogRef<ProductModalComponent>, private productService: ProductService) {
     this.productService.getProductsTypesList().subscribe(resp => {
       resp.forEach(type => {
         this.productTypes.push(type);
@@ -43,11 +36,6 @@ export class ProductModalComponent implements OnInit {
 
   closeDialog(): any {
     this.dialogRef.close('dialog closed');
-  }
-
-  openShopDialog(): any {
-    this.dialogRef.close();
-    this.dialogShop.open(ShopModalComponent);
   }
 
   addNewProductType(): any {
