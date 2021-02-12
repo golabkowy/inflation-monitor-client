@@ -1,15 +1,40 @@
 <h1 mat-dialog-title>Dodaj nowy sklep</h1>
 
-<mat-label>Wybierz kategorie z listy</mat-label>
-<mat-select>
-  <mat-option *ngFor="let shopType of shopTypesList" [value]="shopType">{{shopType.name}}</mat-option>
-</mat-select>
-<br><br>
+<div class="">
+  <div class="row">
+    <div class="col-sm">
+      <form (ngSubmit)="shopFormSubmit()" #shopForm="ngForm">
+        <mat-label>Wybierz kategorię z listy</mat-label>
+        <br>
+        <mat-form-field>
+          <mat-select name="shop" [(ngModel)]="shopCategory">
+            <mat-option *ngFor="let shopType of shopTypesList" [value]="shopType">{{shopType.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-<mat-label>Dodaj nową kategorię</mat-label>
+        <mat-form-field class="example-full-width">
+          <mat-label>{{shopCategory.name}}</mat-label>
+          <input type="email" matInput [formControl]="shopCategoryControll" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="!shopCategoryControll.hasError('required')">
+            Wstaw prawidłową nazwę produktu
+          </mat-error>
+        </mat-form-field>
 
-<input matInput type="text" [(ngModel)]="newShopTypeValue">
-
-<button mat-button *ngIf="newShopTypeValue" matSuffix mat-icon-button aria-label="Clear" (click)="newShopTypeValue=''">
-  <mat-icon>close</mat-icon>
-</button>
+        <br>
+        <mat-form-field class="example-form-field">
+          <mat-label>Nazwa sklepu</mat-label>
+          <input matInput type="text" [(ngModel)]="shopNameDefaultValue">
+          <button mat-button *ngIf="shopNameDefaultValue" matSuffix mat-icon-button aria-label="Clear"
+                  (click)="shopNameDefaultValue=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <br>
+        <div mat-dialog-actions>
+          <button type="submit" mat-raised-button color="primary">Dodaj Sklep</button>
+<!--                    <button mat-raised-button (click)="closeDialog()">Zamknij</button>-->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

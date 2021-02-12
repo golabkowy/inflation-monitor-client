@@ -8,13 +8,12 @@
       <mat-option *ngFor="let productType of productTypes" [value]="productType">{{productType.type}}</mat-option>
     </mat-select>
   </mat-form-field>
-
+  <br>
   <label for="product-price">Nazwa produktu:</label><br>
   <input type="text" id="product-name" name="price" [(ngModel)]="productDataModel.name"><br>
 
   <label for="product-price">Cena produktu:</label><br>
   <input type="text" id="product-price" name="price" [(ngModel)]="productDataModel.price"><br>
-
 
 
   <br><br>

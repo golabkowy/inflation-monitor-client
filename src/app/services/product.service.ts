@@ -16,6 +16,12 @@ export class ProductService {
     return this.httpClient.get<Array<Product>>('http://localhost:8080/products', {responseType: 'json'});
   }
 
+  getProductsListByPhrase(data: string): Observable<Array<Product>> {
+    return this.httpClient.get<Array<Product>>('http://localhost:8080/products/products-by-phrase', {
+      responseType: 'json', params: {phrase: data}
+    });
+  }
+
   getProductsTypesList(): Observable<Array<ProductType>> {
     return this.httpClient.get<Array<ProductType>>('http://localhost:8080/products/product-types', {responseType: 'json'});
   }

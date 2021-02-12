@@ -34,6 +34,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {ProductModalComponent} from './product-modal/product-modal.component';
 import {ShopModalComponent} from './shop-modal/shop-modal.component';
 import {PurchaseModalComponent} from './purchase-modal/purchase-modal.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -54,27 +55,28 @@ import {PurchaseModalComponent} from './purchase-modal/purchase-modal.component'
     ShopModalComponent,
     PurchaseModalComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ChartsModule,
-    BrowserAnimationsModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatPaginatorModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatInputModule,
-    MatListModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatRadioModule,
-    MatCardModule,
-    MatIconModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ChartsModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatPaginatorModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule,
+        MatListModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatRadioModule,
+        MatCardModule,
+        MatIconModule,
+        MatAutocompleteModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
